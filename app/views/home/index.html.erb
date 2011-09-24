@@ -1,0 +1,7 @@
+<% @posts.each do |post| %>
+<p>
+	Title: <%= link_to post.title, post %> by <%=post.name%>
+	<br/>
+	<%=post.body%> 	
+</p>
+<% end %>
