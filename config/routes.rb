@@ -1,5 +1,19 @@
 Quablog::Application.routes.draw do
-resources :posts
+  get "comments/new"
+
+  get "comments/create"
+
+  get "comments/edit"
+
+  get "comments/update"
+
+  get "comments/show"
+
+  get "comments/destroy"
+
+resources :posts do
+  resources :comments
+end
 
   get "home/index"
 
