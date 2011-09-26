@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  def index
+    redirect_to :root
+  end
+  
   def new
     @post = Post.new
 
@@ -31,8 +35,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
  
     respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html  { redirect_to(@post, :notice => 'Post was successfully updated.') }
+        format.html 
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+ 
+    respond_to do |format|
+     if @post.update_attributes(params[:post])
+       format.html  { redirect_to(@post,
+                      :notice => 'Post was successfully updated.') }
       else
         format.html  { render :action => "edit" }
       end
