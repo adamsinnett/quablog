@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	has_many :comments
+	has_many :comments, :dependent => :destroy
 
 	scope :latest, order("created_at DESC")
 
